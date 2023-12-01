@@ -4,7 +4,7 @@ package hw_processor
 import (
 	"context"
 	"fmt"
-	"go.opentelemetry.io/otel/metric"
+	"go.opentelemetry.io/otel/api/metric"
 )
 
 type HelloWorldProcessor struct{}
