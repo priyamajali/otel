@@ -9,11 +9,12 @@ import (
 
 type HelloWorldProcessor struct{}
 
-func (p *HelloWorldProcessor) ProcessStart(ctx context.Context, record metric.Record) (context.Context, metric.Int64Number, metric.Float64Number) {
+func (p *HelloWorldProcessor) ProcessStart(ctx context.Context, result metric.Int64ObserverResult) {
 	fmt.Println("Hello World Start")
-	return ctx, metric.NewInt64Number(0), metric.NewFloat64Number(0)
+	result.Observe(0, metric.NewLabelSet())
 }
 
-func (p *HelloWorldProcessor) ProcessEnd(ctx context.Context, startCtx context.Context, record metric.Record) {
+func (p *HelloWorldProcessor) ProcessEnd(ctx context.Context, result metric.Int64ObserverResult) {
 	fmt.Println("Hello World End")
+	result.Observe(0, metric.NewLabelSet())
 }
